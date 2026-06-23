@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>One More Sip — A Campus Dormitory Absurdity</title>
+<meta name="description" content="A tired student secretly drinks on his way back to the dorm, turning the dormitory into a chaotic space of surveillance, drunkenness, and bodily loss of control." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<!-- Drunk Level HUD: scroll progress, mirrors the in-game meter -->
+<div class="hud" aria-hidden="true">
+  <span class="hud-label">Drunk Level:</span>
+  <span class="hud-value" id="drunkValue">0</span>
+  <div class="hud-bar"><div class="hud-fill" id="drunkFill"></div></div>
+</div>
+
+<!-- Fixed surveillance corner tag -->
+<div class="rec-tag" aria-hidden="true"><span class="rec-dot"></span>SURVEILLANCE · CAM 01</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-scanlines" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Campus Dormitory Absurdity · A dark-comedy pixel game</p>
+    <h1 class="title">
+      <span class="title-line">ONE</span>
+      <span class="title-line title-more">MORE</span>
+      <span class="title-line title-sip">SIP</span>
+    </h1>
+    <p class="logline">
+      A tired student secretly drinks on his way back to the dorm — but his attempt
+      to relax turns the dormitory into a chaotic space of surveillance, drunkenness,
+      and bodily loss of&nbsp;control.
+    </p>
+    <nav class="hero-nav">
+      <a href="#game">The Game</a>
+      <a href="#designs">Designs</a>
+      <a href="#world">Game World</a>
+      <a href="#dev">Development</a>
+    </nav>
+  </div>
+  <!-- The two-space identity rendered as pure CSS pixel scenes -->
+  <div class="hero-scenes" aria-hidden="true">
+    <div class="scene corridor">
+      <div class="ceiling-lamp l1"></div>
+      <div class="ceiling-lamp l2"></div>
+      <div class="door"><span class="door-num">101</span></div>
+      <div class="vending"></div>
+      <div class="exit-sign">EXIT</div>
+      <div class="bottle b1"></div>
+      <div class="bottle b2"></div>
+      <div class="sprite student"></div>
+      <div class="sprite guard"></div>
+      <span class="scene-tag">CORRIDOR · social control</span>
+    </div>
+    <div class="scene bathroom">
+      <div class="bath-lamp"></div>
+      <div class="mirror"></div>
+      <div class="painting"></div>
+      <div class="urinal"></div>
+      <div class="trashcan"></div>
+      <div class="sprite student drunk"></div>
+      <span class="scene-tag">BATHROOM · loss of control</span>
+    </div>
+  </div>
+  <div class="scroll-cue">scroll · the room starts to spin ↓</div>
+</header>
+
+<main>
+
+<!-- ============ THE GAME ============ -->
+<section class="section" id="game">
+  <div class="section-head">
+    <span class="sec-index">01</span>
+    <h2 class="sec-title">The Game</h2>
+    <p class="sec-sub">Inspiration · Concept · Gameplay footage</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3 class="card-h">Inspiration</h3>
+      <p>The game grew out of a familiar East-Asian campus feeling: the dorm is never
+      fully private. Even after class, you are still inside a system — corridors are
+      watched, guards patrol, teachers appear without warning. <em>One More Sip</em> takes
+      that low-grade surveillance and pushes it into dark comedy.</p>
+      <p>It borrows from two unlikely places at once: the patrol-and-hide tension of
+      stealth games, and the deliberately awkward controls of physics-comedy games. A
+      spy thriller's machinery, scaled down to a student hiding a bottle behind his back.</p>
+    </div>
+    <div class="card">
+      <h3 class="card-h">Concept</h3>
+      <p>Two levels, two kinds of danger. In the <strong>corridor</strong>, the threat is
+      external — authority figures who must not catch you drinking. In the
+      <strong>bathroom</strong>, the threat becomes internal — your own drunk body, refusing
+      to aim straight.</p>
+      <p>Every reward carries a cost. Drinking scores points, but each bottle makes the
+      world spin, drift, and reverse. The player physically feels the student losing
+      control. Relief and punishment are the same action.</p>
+    </div>
+  </div>
+
+  <div class="video-wrap">
+    <div class="video-frame" id="videoFrame">
+      <!-- Replace the placeholder below with your video.
+           Option A — YouTube/Bilibili embed:
+             <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+           Option B — local file (put it in assets/ and keep under ~50MB):
+             <video controls poster="assets/poster.png"><source src="assets/gameplay.mp4" type="video/mp4"></video>
+      -->
+      <div class="video-placeholder">
+        <div class="play-btn">▶</div>
+        <p class="ph-title">Gameplay recording goes here</p>
+        <p class="ph-note">Drop your video file into <code>assets/</code> or paste a YouTube / Bilibili embed.<br>See the comment inside <code>index.html</code> for the exact snippet.</p>
+      </div>
+    </div>
+    <p class="caption">Level 1 corridor stealth → Level 2 drunken bathroom aiming.</p>
+  </div>
+</section>
+
+<!-- ============ DESIGNS ============ -->
+<section class="section tilt-a" id="designs">
+  <div class="section-head">
+    <span class="sec-index">02</span>
+    <h2 class="sec-title">Designs</h2>
+    <p class="sec-sub">Life experience · Core emotion · Core mechanics</p>
+  </div>
+
+  <div class="grid-3">
+    <div class="card pillar">
+      <span class="pillar-tag">Life experience</span>
+      <p>Student exhaustion after a long academic day. The dorm as shelter <em>and</em>
+      institution. The small, hidden rebellion of unwinding where you're not supposed to.</p>
+    </div>
+    <div class="card pillar">
+      <span class="pillar-tag">Core emotion</span>
+      <p>The tense triangle of <strong>relaxation, guilt, and punishment</strong>. Wanting to
+      escape pressure, and watching that escape become embarrassing and uncontrollable.</p>
+    </div>
+    <div class="card pillar">
+      <span class="pillar-tag">Core mechanic</span>
+      <p>Risk–reward. Drinking gives points but raises difficulty. The more you score,
+      the harder it gets to score again. The system punishes its own incentive.</p>
+    </div>
+  </div>
+
+  <!-- Risk-reward loop graph -->
+  <div class="graph-block">
+    <h3 class="card-h">The risk–reward loop</h3>
+    <div class="loop-graph">
+      <div class="loop-node">Drink<span>+points</span></div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-node warn">Drunk Level&nbsp;↑<span>spin · drift · reversed keys</span></div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-node">Harder to act<span>harder to hide · harder to aim</span></div>
+      <div class="loop-arrow loop-back">↺ tempted to drink again</div>
+    </div>
+  </div>
+
+  <!-- Drunk intensity curve as inline SVG -->
+  <div class="graph-block">
+    <h3 class="card-h">Difficulty vs. Drunk Level</h3>
+    <p class="graph-lead">Two curves cross: as the score climbs, control falls. The gap
+    between them is where the comedy — and the failure — lives.</p>
+    <svg class="curve" viewBox="0 0 600 260" role="img" aria-label="Chart: as drunk level rises, score reward climbs while player control drops">
+      <!-- axes -->
+      <line x1="50" y1="20" x2="50" y2="220" class="axis"/>
+      <line x1="50" y1="220" x2="570" y2="220" class="axis"/>
+      <!-- gridlines -->
+      <line x1="50" y1="120" x2="570" y2="120" class="grid"/>
+      <line x1="310" y1="20" x2="310" y2="220" class="grid"/>
+      <!-- reward up -->
+      <path d="M50,210 C200,200 260,150 570,40" class="line-reward"/>
+      <!-- control down -->
+      <path d="M50,40 C220,60 300,150 570,212" class="line-control"/>
+      <text x="300" y="248" class="axlab">Drunk Level  →</text>
+      <text x="20" y="120" class="axlab vert" transform="rotate(-90 20 120)">intensity →</text>
+      <text x="500" y="34" class="lab reward">score reward</text>
+      <text x="430" y="205" class="lab control">player control</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ GAME WORLD ============ -->
+<section class="section tilt-b" id="world">
+  <div class="section-head">
+    <span class="sec-index">03</span>
+    <h2 class="sec-title">Game World</h2>
+    <p class="sec-sub">Visual &amp; audio · Space · Cultural layers · Narrative</p>
+  </div>
+
+  <!-- Two spaces -->
+  <div class="space-split">
+    <article class="space-panel corridor-panel">
+      <span class="space-kicker">Space 01</span>
+      <h3>The Corridor</h3>
+      <p class="space-role">Transitional space between public control and private rest.
+      Close to the dorm, still fully visible.</p>
+      <ul class="spec">
+        <li>Long horizontal hallway, narrow path</li>
+        <li>Dorm doors · blue-gray tiled walls</li>
+        <li>Dim yellow lights, scattered bottles</li>
+        <li>Teachers &amp; guards on patrol routes</li>
+      </ul>
+      <p class="space-mood">Tense, repetitive — discipline, surveillance, the fear of being caught.</p>
+    </article>
+    <article class="space-panel bathroom-panel">
+      <span class="space-kicker">Space 02</span>
+      <h3>The Bathroom</h3>
+      <p class="space-role">Enclosed and small. The danger is no longer the guards — it's
+      the student's own unstable body.</p>
+      <ul class="spec">
+        <li>Tiled wall and floor · cold lighting</li>
+        <li>Urinal · round trash can · framed picture</li>
+        <li>Flickering light, empty surrounding space</li>
+        <li>An ordinary room made strange by drunkenness</li>
+      </ul>
+      <p class="space-mood">An absurd performance stage where wrong targets become "valuable."</p>
+    </article>
+  </div>
+
+  <div class="grid-2">
+    <!-- Audio -->
+    <div class="card">
+      <h3 class="card-h">Visual &amp; audio identity</h3>
+      <p>A muted dormitory palette — dark blue-gray, dirty beige, dull yellow lamplight,
+      cold tile. Realistic, tired, slightly depressing. As the student gets drunk the
+      image destabilizes: rotation, blur, double vision, camera shake, color distortion.</p>
+      <p>Audio is mostly ambient music: calm in Level 1, light and humorous in Level 2,
+      slightly distorted at high drunkenness. The bathroom adds a comedic twist — each
+      target plays a different note:</p>
+      <div class="note-row">
+        <span class="note">Urinal <b>Do</b> <i>+2</i></span>
+        <span class="note">Trash can <b>Re</b> <i>+1</i></span>
+        <span class="note">Picture <b>Mi</b> <i>+3</i></span>
+        <span class="note muted">Floor <b>—</b> <i>−1/0</i></span>
+      </div>
+    </div>
+    <!-- Cultural -->
+    <div class="card">
+      <h3 class="card-h">Cultural layers</h3>
+      <p>The game is rooted in East-Asian dormitory life — school discipline and
+      surveillance, student stress culture, the late-night campus atmosphere, and the
+      quiet rule-breaking that happens in shared corridors and bathrooms.</p>
+      <p>Its comedy is built on embarrassment and loss of control. The corridor, bathroom,
+      teacher, guard, and dorm room aren't just scenery — together they form one
+      controlled system the student can never quite step outside of.</p>
+    </div>
+  </div>
+
+  <!-- Narrative arc -->
+  <div class="graph-block">
+    <h3 class="card-h">Narrative design — story told through space</h3>
+    <div class="arc">
+      <div class="arc-step">
+        <span class="arc-n">A long day</span>
+        <p>A tired student heads back to the dorm under pressure.</p>
+      </div>
+      <div class="arc-line"></div>
+      <div class="arc-step">
+        <span class="arc-n">The shortcut</span>
+        <p>He drinks in secret to relax — and must hide it from authority.</p>
+      </div>
+      <div class="arc-line"></div>
+      <div class="arc-step">
+        <span class="arc-n">Escalation</span>
+        <p>Each reward deepens the consequence. The corridor tightens.</p>
+      </div>
+      <div class="arc-line"></div>
+      <div class="arc-step">
+        <span class="arc-n">Collapse</span>
+        <p>In the bathroom, body, vision, sound and controls all give way.</p>
+      </div>
+    </div>
+    <p class="arc-thesis">The corridor is <em>social</em> control; the bathroom is <em>personal</em>
+    loss of control. Two rooms, one comic-but-uncomfortable story about pressure, hidden
+    rebellion, and the failure of escape.</p>
+  </div>
+</section>
+
+<!-- ============ DEVELOPMENT ============ -->
+<section class="section tilt-c" id="dev">
+  <div class="section-head">
+    <span class="sec-index">04</span>
+    <h2 class="sec-title">Development</h2>
+    <p class="sec-sub">Selected highlights from the agent-development log</p>
+  </div>
+
+  <p class="dev-lead">A pixel game like this is a chain of small, specific decisions. These
+  are placeholder highlights — swap each entry for real moments from your
+  <code>agent-development-log</code>: the prompt, what changed, and what you learned.</p>
+
+  <ol class="devlog">
+    <li class="log-entry">
+      <span class="log-tag">Mechanic</span>
+      <h4>Tuning the drunk effect so it's funny, not nauseating</h4>
+      <p>Replace with your log note — e.g. how screen-spin and reversed controls were
+      dialed in so they read as comedy rather than motion sickness.</p>
+    </li>
+    <li class="log-entry">
+      <span class="log-tag">Stealth</span>
+      <h4>Guard patrol routes &amp; the "hide bottle" window</h4>
+      <p>Replace with your log note — how detection radius and the timing to hide the
+      bottle were balanced to keep tension fair.</p>
+    </li>
+    <li class="log-entry">
+      <span class="log-tag">Audio</span>
+      <h4>Mapping targets to musical notes (Do / Re / Mi)</h4>
+      <p>Replace with your log note — building the bathroom's comedic note system and
+      syncing it to scoring.</p>
+    </li>
+    <li class="log-entry">
+      <span class="log-tag">Art</span>
+      <h4>Holding the muted dorm palette under distortion</h4>
+      <p>Replace with your log note — keeping the low-saturation look readable once
+      blur, double-vision and color shift kick in.</p>
+    </li>
+  </ol>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p class="foot-title">ONE MORE SIP</p>
+  <p class="foot-line">A campus dormitory absurdity · pixel-art dark comedy</p>
+  <p class="foot-meta">Made as a game-design coursework project. <a href="#top">Back to top ↑</a></p>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
