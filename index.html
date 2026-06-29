@@ -78,7 +78,7 @@
   <div class="section-head">
     <span class="sec-index">01</span>
     <h2 class="sec-title">The Game</h2>
-    <p class="sec-sub">Inspiration · Concept · Gameplay footage</p>
+    <p class="sec-sub">Inspiration · Concept · Playable build</p>
   </div>
 
   <div class="grid-2">
@@ -105,10 +105,14 @@
   </div>
 
   <div class="video-wrap">
-    <div class="video-frame" id="videoFrame">
-      <iframe src="https://drive.google.com/file/d/1Oe6qpiLqvGAnGEEFSCV50ENj_XyKR3LA/preview" allow="autoplay" allowfullscreen></iframe>
+    <div style="max-width:980px;margin:0 auto;">
+      <iframe src="game/index.html" title="One More Sip — playable build"
+        style="width:100%;aspect-ratio:96/60;border:0;background:#000;display:block;border-radius:10px;"
+        allow="fullscreen; autoplay"></iframe>
     </div>
-    <p class="caption">Level 1 corridor stealth → Level 2 drunken bathroom aiming.</p>
+    <p class="caption">Play it right here · keyboard only.&nbsp; <strong>A/D</strong> move ·
+      <strong>E</strong> drink · <strong>Shift</strong> hide bottle · <strong>W/S</strong> aim ·
+      <strong>R</strong> restart. &nbsp;Get drunk in the corridor, then make music in the bathroom.</p>
   </div>
 </section>
 
@@ -220,15 +224,17 @@
       <p>A muted dormitory palette — dark blue-gray, dirty beige, dull yellow lamplight,
       cold tile. Realistic, tired, slightly depressing. As the student gets drunk the
       image destabilizes: rotation, blur, double vision, camera shake, color distortion.</p>
-      <p>Audio is mostly ambient music: calm in Level 1, light and humorous in Level 2,
-      slightly distorted at high drunkenness. The bathroom adds a comedic twist — each
-      target plays a different note:</p>
+      <p>Audio is mostly ambient music: calm in the corridor, light and humorous in the
+      bathroom, slightly distorted at high drunkenness. The bathroom turns scoring into a
+      tiny rhythm game — the three targets each sing a note, and one lights up at a time:</p>
       <div class="note-row">
-        <span class="note">Urinal <b>Do</b> <i>+2</i></span>
-        <span class="note">Trash can <b>Re</b> <i>+1</i></span>
-        <span class="note">Picture <b>Mi</b> <i>+3</i></span>
-        <span class="note muted">Floor <b>—</b> <i>−1/0</i></span>
+        <span class="note">Target 1 <b>Do</b></span>
+        <span class="note">Target 2 <b>Re</b></span>
+        <span class="note">Target 3 <b>Mi</b></span>
       </div>
+      <p>Pee on the <strong>highlighted</strong> target before it switches to score; chain hits for
+      a growing <strong>Combo</strong>. Your final accuracy reads out as <em>Perfect Melody!</em>,
+      <em>You Made it!</em>, or <em>Such a Mess!!!</em></p>
     </div>
     <!-- Cultural -->
     <div class="card">
@@ -281,33 +287,37 @@
   </div>
 
   <p class="dev-lead">A pixel game like this is a chain of small, specific decisions. These
-  are placeholder highlights — swap each entry for real moments from your
-  <code>agent-development-log</code>: the prompt, what changed, and what you learned.</p>
+  are highlights from the <code>agent-development-log</code> — the moments where the design
+  actually changed.</p>
 
   <ol class="devlog">
     <li class="log-entry">
       <span class="log-tag">Mechanic</span>
-      <h4>Tuning the drunk effect so it's funny, not nauseating</h4>
-      <p>Replace with your log note — e.g. how screen-spin and reversed controls were
-      dialed in so they read as comedy rather than motion sickness.</p>
+      <h4>Drunk effects that escalate with the meter</h4>
+      <p>Five effects — woozy camera sway, double vision, reversed A/D, input delay, and
+      slowed actions — fire on a tier system: the drunker you are, the more often they hit
+      and the more stack at once. Tuned to read as comedy, not motion sickness.</p>
     </li>
     <li class="log-entry">
       <span class="log-tag">Stealth</span>
-      <h4>Guard patrol routes &amp; the "hide bottle" window</h4>
-      <p>Replace with your log note — how detection radius and the timing to hide the
-      bottle were balanced to keep tension fair.</p>
+      <h4>Staff who only catch you when they're looking</h4>
+      <p>Teachers and a guard patrol the corridor and only bust you if they're <em>facing</em>
+      you within range while you're drinking or holding a visible bottle. Hold <strong>Shift</strong>
+      to hide the bottle and slip past — get caught and it's "your parents are on the way!".</p>
     </li>
     <li class="log-entry">
       <span class="log-tag">Audio</span>
-      <h4>Mapping targets to musical notes (Do / Re / Mi)</h4>
-      <p>Replace with your log note — building the bathroom's comedic note system and
-      syncing it to scoring.</p>
+      <h4>Turning the bathroom into a rhythm game</h4>
+      <p>The flat per-target scoring was replaced with a whack-a-mole of light: one target
+      glows at a time, hitting it plays its Do/Re/Mi note and builds a Combo, and the run
+      ends on an accuracy verdict — Perfect Melody, You Made it, or Such a Mess.</p>
     </li>
     <li class="log-entry">
-      <span class="log-tag">Art</span>
-      <h4>Holding the muted dorm palette under distortion</h4>
-      <p>Replace with your log note — keeping the low-saturation look readable once
-      blur, double-vision and color shift kick in.</p>
+      <span class="log-tag">Feel</span>
+      <h4>Pee that splatters, lingers, and shows you the damage</h4>
+      <p>Each droplet obeys gravity with a randomly drifting power, leaves a fading stain
+      where it lands, and the whole minigame ships in a browser-playable WebGL build wired
+      right into this page.</p>
     </li>
   </ol>
 </section>
